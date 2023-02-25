@@ -5,82 +5,55 @@ output: html_document
 
 ### Introduction
 
-An introduction of the data and a description of the trends/books/items you are choosing to analyze (and why!)
+**An introduction of the data and a description of the trends/books/items you are choosing to analyze (and why!)**
+
+To be honest, I chose my data set entirely based on whichever one had the smallest file size, which was the data set with items checked out at least 10x a month from 2017 to 2023 (229 MB.) The trend I chose was extremely broad and not too niche, so I definitely had the flexibility to choose any of the three listed data sets. For this project, the trend I analyzed was E-book popularity over the years compared to book popularity. I was interested in this question because from personal experience of volunteering at a library during the pandemic, I knew that E-books had a major moment in 2020, and was wondering if that was just a local trend or widely applicable.
 
 ### Summary Information
 
-Write a summary paragraph of findings that includes the 5 values calculated from your summary information R script
+**Write a summary paragraph of findings that includes the 5 values calculated from your summary information R script**
 
-These will likely be calculated using your DPLYR skills, answering questions such as:
+To determine the trends in E-book popularity over time, there were a few questions I knew I had to answer for sure. These basic summary statistics included:
 
-- What is the average number of checkouts for each item?
-- What is the month or year with the most/least checkouts for a book that you're interested in?
-- What is the month or year with the most/least checkouts for ebooks?
-- How has the number of print book checkouts changed over time?
+1. What is the total number of E-books checked out in each year listed in the dataframe? Print books?
+2.  Has there been a year(s) where E-books were checked out more than print books?
+3. What is the average number of E-books checked out? Books?
 
-Feel free to calculate and report values that you find relevant.
+From the results of these discussion questions, the keynote was that E-books became largely more checked out than books over time. Since 2020, E-books have had more checkouts than books, positively skewing the data. From this conclusion, I found two more questions to help me better understand this trend:
+
+4. What year had the most E-book checkouts?
+5. What is the ratio of E-book / Book Checkouts in each year?
+
+To no surprise based on analysis from the first few questions, the year with the most E-book checkouts was in 2022, well after 2020, when E-books were first found to be more frequently checked out than books. I was most surprised by the fact that the E-book / book checkout ratio was almost 3 in 2020! I knew that E-books faced a surge in popularity during the course of the pandemic, but the extent is astounding.
 
 ### The Dataset
 
-- Who collected/published the data?  
-- What are the parameters of the data (dates, number of checkouts, kinds of books, etc.)?
-- How was the data collected or generated?  
-- Why was the data collected?  
-- What, if any, ethical questions do you need to consider when working with this data?  
-- What are possible limitations or problems with this data?   (at least 200 words)
+All of the data sets that were provided for this assignment were published by the Seattle Public Library (SPL.) Since this is a checkout database, it is most probable that the data used in these data sets is collected and compiled automatically whenever a book is checked out of the SPL system. One ethical concern that I have is the possibility of data being collected without informed consent. The library that I used to volunteer at combated this by allowing those who are registering for a new library card to opt out of data collection at the time of registration. I am unsure if this is a common practice or if SPL follows this guideline as well.
+
+As I've mentioned previously, the trend that I chose was **very** broad. I didn't have to worry about the limitations of this data set either for that reason. The only types of books that I considered in my project were books and e-books, both of which were present in this data set. I was additionally interested in the trends of e-book vs. book popularity from pre-pandemic, pandemic, and post-pandemic time frames. The data set spans from 2017 to 2023, so I didn't have to consider this possible constraint either. Overall, I am content with this data set and didn't find any shortcomings in it that could weaken my analysis.
 
 
 ### First Trends Over Time Chart
 
-Include a chart. Make sure to describe why you included the chart, and what patterns emerged
+**Include a chart. Make sure to describe why you included the chart, and what patterns emerged.**
 
-The first chart that you will create and include will show the trend over time of your variable/topic/interest. Think carefully about what you want to communicate to your user (you may have to find relevant trends in the dataset first!). Here are some requirements to help guide your design:
+This chart displays the trend in the number of E-book checkouts over time versus the number of book checkouts from the years of 2017 to 2023. In the graph below, we see that E-books rose in checkout frequency steadily from 2017 to 2020. Additionally, from 2019 to 2020, books faced a steep decline in checkout frequency. The sharp decline in both books and E-books from 2022 to 2023 can be attributed to the fact that there is comparatively less checkout data for 2023 than other years, since the year has barely started. I included this chart because it is the simplest display to visualize the trend I was interested in. The chart is readable and pleasing to the eye because of its simplicity. It uses minimal information while still being able to project the trend I'm interested in.
 
-- Show more than one, but fewer than ~10 trends
-  - For example, two books, or 5 different mediums
-- You must have clear x and y axis labels
-- The chart needs a clear title 
-- You need a legend for your different line colors and a clear - legend title
-In your .Rmd file, make sure to describe why you included the chart, and what patterns emerged
-
-When we say "clear" or "human readable" titles and labels, that means that you should not just display the variable name.
-
-Here's an example of how to run an R script inside an RMarkdown file:
-
-``````{r, echo = FALSE, warning = FALSE, code = readLines("chart1_example.R")}
+```{r, echo = FALSE, warning = FALSE, code = readLines("chart1.R")}
 ```
 
 ### Second Trends Over Time Chart
 
-Include a chart. Make sure to describe why you included the chart, and what patterns emerged
+**Include a chart. Make sure to describe why you included the chart, and what patterns emerged.**
 
-The second chart that you will create and include will show another trend over time of your variable/topic/interest. Think carefully about what you want to communicate to your user (you may have to find relevant trends in the dataset first!). Here are some requirements to help guide your design:
+This chart is a visual display of E-book to book checkout ratio from 2017 to 2023. From chart 1, we can easily visualize the trend of E-book vs. book checkouts, but it is still difficult to quantify the magnitude of the difference between checkout types. This is where a ratio comes to use. Then, plotting the ratio from each year helps us further understand how much more or less E-book checkouts were compared to book checkouts. A value of less than 1 correlates with the number of E-book checkouts being lower than book checkouts, whereas a value of greater than 1 correlates with the number of E-book checkouts being higher than book checkouts. As we can see, in 2020, the ratio is approximately 3, meaning that E-books were checked out three times more than books. This trend follows a normal (Gaussian) distribution.
 
-- Show more than one, but fewer than ~10 trends
-  - For example, two books, or 5 different mediums
-- You must have clear x and y axis labels
-- The chart needs a clear title 
-- You need a legend for your different line colors and a clear - legend title
-In your .Rmd file, make sure to describe why you included the chart, and what patterns emerged
-
-When we say "clear" or "human readable" titles and labels, that means that you should not just display the variable name.
-
-Here's an example of how to run an R script inside an RMarkdown file:
-
-``````{r, echo = FALSE, code = readLines("chart2_example.R")}
+```{r, echo = FALSE, code = readLines("chart2.R")}
 ```
 
-### Your Choice
+### Third Data Visualization
 
-The last chart is up to you. It could be a line plot, scatter plot, histogram, bar plot, stacked bar plot, and more. Here are some requirements to help guide your design:
+I included this chart to visualize whether E-books or books are more frequently checked out on average. The results indicate that E-books are checked out more frequently checked out. This chart is a skewed representation of the trend due to a major outlier in E-book checkout frequency in 2020. I think that the difference in the averages would have been much more subtle if the data set covered more years past 2017. However, for the purposes of this project, I am satisfied with the inclusion of this chart. Ultimately, it is a simple and humanly designed chart that conveys key information from this data analysis.
 
-- You must have clear x and y axis labels
-- The chart needs a clear title 
-- You need a legend for your different line colors and a clear legend title
-
-Here's an example of how to run an R script inside an RMarkdown file:
-
-``````{r, echo = FALSE, code = readLines("chart2_example.R")}
+```{r, echo = FALSE, code = readLines("chart3.R")}
 ```
-
-
